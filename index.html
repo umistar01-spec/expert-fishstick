@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>Rock Paper Scissors</title>
+  <title>เกมเป่ายิงฉุบ!</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>เป่ายิงฉุบ!</h1>
-  <div class="buttons">
-    <button onclick="play('rock')">ค้อน</button>
-    <button onclick="play('paper')">กระดาษ</button>
-    <button onclick="play('scissors')">กรรไกร</button>
+  <h1>เป่ายิงฉุบ 🪨📄✂️</h1>
+
+  <div class="score-board">
+    <p>คุณ: <span id="player-score">0</span> | คอม: <span id="computer-score">0</span></p>
   </div>
-  <p id="result"></p>
+
+  <div class="buttons">
+    <button onclick="play('rock')">🪨 ค้อน</button>
+    <button onclick="play('paper')">📄 กระดาษ</button>
+    <button onclick="play('scissors')">✂️ กรรไกร</button>
+  </div>
+
+  <div id="result-box">
+    <p id="result">เลือกสิว่าจะออกอะไร 😎</p>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

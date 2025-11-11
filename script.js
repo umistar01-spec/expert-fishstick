@@ -1,27 +1,41 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function play(playerChoice) {
   const choices = ['rock', 'paper', 'scissors'];
-  const botChoice = choices[Math.floor(Math.random() * 3)];
-  let result = '';
+  const computerChoice = choices[Math.floor(Math.random() * 3)];
+  let resultText = '';
 
-  if (playerChoice === botChoice) {
-    result = 'เสมอ!';
+  // กำหนดผลลัพธ์
+  if (playerChoice === computerChoice) {
+    resultText = 'เสมอ 😐';
   } else if (
-    (playerChoice === 'rock' && botChoice === 'scissors') ||
-    (playerChoice === 'paper' && botChoice === 'rock') ||
-    (playerChoice === 'scissors' && botChoice === 'paper')
+    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'paper' && computerChoice === 'rock') ||
+    (playerChoice === 'scissors' && computerChoice === 'paper')
   ) {
-    result = 'คุณชนะ!';
+    resultText = 'คุณชนะ! 🎉';
+    playerScore++;
   } else {
-    result = 'คุณแพ้!';
+    resultText = 'คุณแพ้ 😭';
+    computerScore++;
   }
 
-  document.getElementById('result').innerText = คุณเลือก: ${translate(playerChoice)}\nคอมเลือก: ${translate(botChoice)}\n=> ${result};
+  // แสดงผลลัพธ์
+  document.getElementById('result').innerHTML =
+    คุณเลือก: ${translate(playerChoice)}<br> +
+    คอมเลือก: ${translate(computerChoice)}<br> +
+    <strong>${resultText}</strong>;
+
+  // อัปเดตคะแนน
+  document.getElementById('player-score').innerText = playerScore;
+  document.getElementById('computer-score').innerText = computerScore;
 }
 
 function translate(choice) {
   return {
-    rock: 'ค้อน',
-    paper: 'กระดาษ',
-    scissors: 'กรรไกร'
+    rock: '🪨 ค้อน',
+    paper: '📄 กระดาษ',
+    scissors: '✂️ กรรไกร'
   }[choice];
 }
